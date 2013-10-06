@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Deploy" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Default</Configuration>
+    <ProjectGuid>{9c18b5c6-4e62-4cf4-92d0-de79768cbd0e}</ProjectGuid>
+    <Name>Yet (not) Another Earth Maps Pack</Name>
+    <Guid>36e88483-48fe-4545-b85f-bafc50dde315</Guid>
+    <ModVersion>23</ModVersion>
+    <Stability>Beta</Stability>
+    <Teaser>Earth maps with True Starting Location and custom options.</Teaser>
+    <Description>Earth maps with True Starting Location and custom options using an advanced setup screen.[NEWLINE][COLOR_RED]quadcore CPU and 4gb RAM on 64bit OS are recommanded to use the giant map.[/COLOR][NEWLINE][ICON_BULLET] Giant Earth (180x96): edited conversion of Genghis Kai GEM for civ4.[NEWLINE][ICON_BULLET] Huge Earth (120x80): Dale's huge map edited with Europe and Japan upscaled[NEWLINE][ICON_BULLET] Standard Earth (82x50): a Werner projection Earth map by smellymummy[NEWLINE][ICON_BULLET] Large Europe (79x73): Dieter's Europe CiV map[NEWLINE][ICON_BULLET] Standard Mediterranean (74x52): for Ambrox62's AMC mod[NEWLINE][NEWLINE]City States [ICON_CITY_STATE] with TSL for each map are available as separate mods[NEWLINE][NEWLINE]Installation: activate the mod, then choose SINGLE PLAYER and CUSTOM GAME to get the new setup menu. [COLOR_RED]You must use the custom game menu, else the mod will not be activated in game.[/COLOR]</Description>
+    <Authors>Gedemon</Authors>
+    <SpecialThanks>Genghis Kai, Dale, smellymummy, Dieter VonClam, Ambrox62</SpecialThanks>
+    <Categories>$Categories$</Categories>
+    <AffectsSavedGames>false</AffectsSavedGames>
+    <MinCompatibleSaveVersion>0</MinCompatibleSaveVersion>
+    <SupportsSinglePlayer>true</SupportsSinglePlayer>
+    <SupportsMultiplayer>true</SupportsMultiplayer>
+    <SupportsMac>true</SupportsMac>
+    <AssemblyName>Yagem Extended</AssemblyName>
+    <RootNamespace>Yagem Extended</RootNamespace>
+    <ReloadLandmarkSystem>false</ReloadLandmarkSystem>
+    <ModContent>
+      <Content>
+        <Type>Custom</Type>
+        <Name>TXT_KEY_YNAEMP_SCENARIO_TITLE</Name>
+        <Description>True Sarting Location Earth Maps with custom setup menu, realistic random resources placement and more options.</Description>
+        <FileName>GameSetup/YnaemSetup.xml</FileName>
+      </Content>
+      <Content>
+        <Type>InGameUIAddin</Type>
+        <Name>YnAEMP</Name>
+        <Description>YnAEMP</Description>
+        <FileName>LUA/YnaemInGame.lua</FileName>
+      </Content>
+      <Content>
+        <Type>InGameUIAddin</Type>
+        <Name>ShareData</Name>
+        <Description>ShareData</Description>
+        <FileName>LUA/ShareData.lua</FileName>
+      </Content>
+    </ModContent>
+    <ModActions>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/YnaempTables.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/CivilizationsStartPos.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/RulesChange.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/MinorCivStartPos.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/MinorCivAdded.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/ResourceRegionPos.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/ResourceRegionExclude.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/CivilizationsRequestedResource.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>SQL/RulesChange.sql</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/Texts.xml</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>SQL/CleanCS.sql</FileName>
+      </Action>
+      <Action>
+        <Set>OnModActivated</Set>
+        <Type>UpdateDatabase</Type>
+        <FileName>XML/CityMap.xml</FileName>
+      </Action>
+    </ModActions>
+    <Homepage>http://forums.civfanatics.com/showthread.php?t=397387</Homepage>
+    <ModProperties>
+      <Property>
+        <Name>Custom_Background_TXT_KEY_YNAEMP_SCENARIO_TITLE</Name>
+        <Description>Art/AncientWorld.dds</Description>
+      </Property>
+      <Property>
+        <Name>_FiraxisScenario</Name>
+        <Description>1</Description>
+      </Property>
+    </ModProperties>
+    <SupportsHotSeat>true</SupportsHotSeat>
+    <ModReferences />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Default' ">
+    <OutputPath>.</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Package Only' ">
+    <PackageMod>true</PackageMod>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Deploy Only' ">
+    <PackageMod>false</PackageMod>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="ANACMap_blank.Civ5Map">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\AncientWorld.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Art\WorldMap.dds">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Earth_Giant_blank.Civ5Map">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Eastern_Mediterranean_Large_blank.Civ5Map">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Eastern_Mediterranean_Standard_blank.Civ5Map">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Europe_Giant_blank.Civ5Map">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Europe_Huge_blank.Civ5Map">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Europe_Large_blank.Civ5Map">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="GameSetup\ResourcesRules.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="GameSetup\YnaemSetup.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="GameSetup\YnaemSetup.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="GreatestEarthMap.Civ5Map">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="LUA\ShareData.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="LUA\YnaemCityMap.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="LUA\YnaemFunctions.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="LUA\YnaemScenario.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="LUA\YnaemDefines.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="LUA\YnaemInGame.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="LUA\YnaemLoading.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="LUA\YnaemUtils.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Earth_Standard_Cordiform_blank.Civ5Map">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Mediterranean_Large_blank.Civ5Map">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Override\MapGenerator.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="Override\WorldBuilderRandomItems.lua">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>True</ImportIntoVFS>
+    </Content>
+    <Content Include="YnAEMP_readme.txt">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="South_East_Asia_Large_blank.Civ5Map">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="SQL\CleanCS.sql">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="SQL\RulesChange.sql">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Western_Mediterranean_Standard_blank.Civ5Map">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\CityMap.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\CivilizationsRequestedResource.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\ResourceRegionExclude.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\ResourceRegionPos.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\MinorCivAdded_.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\CivilizationsStartPos.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\MinorCivStartPos.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\RulesChange.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="Earth_Huge_blank.Civ5Map">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\Texts.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+    <Content Include="XML\YnaempTables.xml">
+      <SubType>Lua</SubType>
+      <ImportIntoVFS>False</ImportIntoVFS>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="LUA" />
+    <Folder Include="GameSetup" />
+    <Folder Include="Art" />
+    <Folder Include="Override\" />
+    <Folder Include="SQL" />
+    <Folder Include="XML\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Firaxis\ModBuddy\Civ5Mod.targets" />
+</Project>
