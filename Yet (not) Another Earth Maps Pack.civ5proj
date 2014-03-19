@@ -115,6 +115,7 @@
     </ModProperties>
     <SupportsHotSeat>true</SupportsHotSeat>
     <ModReferences />
+    <ReloadAudioSystem>false</ReloadAudioSystem>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Default' ">
     <OutputPath>.</OutputPath>

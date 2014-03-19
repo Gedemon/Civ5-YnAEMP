@@ -182,8 +182,8 @@ local defaultResourcesRule = {
 -- ResourceUsage : ?
 -- PresentOnAllValidPlots : I suppose make it appears on all plots that can host it
 -- Area : ?
--- Hills : true (=1) means can on hills
--- Flatlands : true (=1) means can on flatlands
+-- Hills : true (=1) means can be placed on hills
+-- Flatlands : true (=1) means can be placed on flatlands
 -- NoRiverSide : true (=1) means can't be near river
 --
 -- Added variables
